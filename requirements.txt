@@ -1,0 +1,9 @@
+torch>=2.1
+torchvision>=0.16
+pillow
+numpy
+pandas
+matplotlib
+scikit-learn
+mediapipe>=0.10.9
+kaggle
