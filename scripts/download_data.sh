@@ -7,6 +7,11 @@ mkdir -p data/own
 
 # 1) Synthetic hands (Lexset), numbers 1-10
 if [ ! -d data/lexset ]; then
+  if [ ! -f ~/.kaggle/kaggle.json ] && [ -z "${KAGGLE_USERNAME:-}" ]; then
+    echo "No Kaggle token found. On kaggle.com: your picture -> Settings -> API -> Create New Token,"
+    echo "then: mkdir -p ~/.kaggle && mv ~/Downloads/kaggle.json ~/.kaggle/ && chmod 600 ~/.kaggle/kaggle.json"
+    exit 1
+  fi
   kaggle datasets download -d lexset/synthetic-asl-numbers -p data/lexset --unzip
 fi
 
